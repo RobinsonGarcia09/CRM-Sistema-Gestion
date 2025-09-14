@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM - Sistema de Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header del CRM -->
+    <header class="header">
+        <h1>CRM - Sistema de Gestión</h1>
+        <p>Gestiona tu negocio de manera eficiente</p>
+    </header>
+
+    <!-- Contenedor principal -->
+    <main class="main-container">
+        <!-- Panel de navegación con los módulos -->
+        <nav class="modules-nav">
+            <h2>Módulos del Sistema</h2>
+            <div class="modules-grid">
+                <!-- Módulo de Proveedores -->
+                <a href="proveedores.html" class="module-card">
+                    <div class="module-icon">🏢</div>
+                    <h3>PROVEEDORES</h3>
+                    <p>Gestiona tus proveedores</p>
+                </a>
+
+                <!-- Módulo de Clientes -->
+                <a href="clientes.html" class="module-card">
+                    <div class="module-icon">👥</div>
+                    <h3>CLIENTES</h3>
+                    <p>Administra tu base de clientes</p>
+                </a>
+
+                <!-- Módulo de Productos -->
+                <a href="productos.html" class="module-card">
+                    <div class="module-icon">📦</div>
+                    <h3>PRODUCTOS</h3>
+                    <p>Controla tu inventario</p>
+                </a>
+
+                <!-- Módulo de Historial de Ventas -->
+                <a href="ventas.html" class="module-card">
+                    <div class="module-icon">📊</div>
+                    <h3>HISTORIAL DE VENTAS</h3>
+                    <p>Revisa tus ventas</p>
+                </a>
+
+                <!-- Módulo de Vendedores -->
+                <a href="vendedores.html" class="module-card">
+                    <div class="module-icon">👨‍💼</div>
+                    <h3>VENDEDORES</h3>
+                    <p>Gestiona tu equipo de ventas</p>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Contenedor para mostrar el contenido de cada módulo -->
+        <div id="module-content" class="module-content">
+            <div class="welcome-message">
+                <h2>¡Bienvenido al CRM!</h2>
+                <p>Selecciona un módulo del menú superior para comenzar a gestionar tu negocio.</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>🏢 Proveedores</h3>
+                        <p>Gestiona tu base de proveedores con funcionalidades completas de CRUD</p>
+                        <a href="proveedores.html" class="btn-info">Ir a Proveedores</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>👥 Clientes</h3>
+                        <p>Administra tu base de clientes (próximamente)</p>
+                        <a href="clientes.html" class="btn-info">Ver Módulo</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>📦 Productos</h3>
+                        <p>Controla tu inventario (próximamente)</p>
+                        <a href="productos.html" class="btn-info">Ver Módulo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 CRM - Sistema de Gestión. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>

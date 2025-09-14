@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores - CRM Sistema de Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header del CRM -->
+    <header class="header">
+        <h1>CRM - Sistema de Gestión</h1>
+        <p>Módulo de Proveedores</p>
+    </header>
+
+    <!-- Navegación de módulos -->
+    <nav class="modules-nav">
+        <div class="modules-grid">
+            <a href="index.html" class="module-card">
+                <div class="module-icon">🏠</div>
+                <h3>INICIO</h3>
+                <p>Volver al inicio</p>
+            </a>
+            
+            <a href="proveedores.html" class="module-card active">
+                <div class="module-icon">🏢</div>
+                <h3>PROVEEDORES</h3>
+                <p>Gestiona tus proveedores</p>
+            </a>
+
+            <a href="clientes.html" class="module-card">
+                <div class="module-icon">👥</div>
+                <h3>CLIENTES</h3>
+                <p>Administra tu base de clientes</p>
+            </a>
+
+            <a href="productos.html" class="module-card">
+                <div class="module-icon">📦</div>
+                <h3>PRODUCTOS</h3>
+                <p>Controla tu inventario</p>
+            </a>
+
+            <a href="ventas.html" class="module-card">
+                <div class="module-icon">📊</div>
+                <h3>HISTORIAL DE VENTAS</h3>
+                <p>Revisa tus ventas</p>
+            </a>
+
+            <a href="vendedores.html" class="module-card">
+                <div class="module-icon">👨‍💼</div>
+                <h3>VENDEDORES</h3>
+                <p>Gestiona tu equipo de ventas</p>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <main class="main-container">
+        <div id="module-content" class="module-content">
+            <!-- El contenido se cargará aquí -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 CRM - Sistema de Gestión. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/models/Proveedor.js"></script>
+    <script src="js/views/ProveedorView.js"></script>
+    <script src="js/controllers/ProveedorController.js"></script>
+    <script>
+        // Variable global para el controlador de proveedores
+        let proveedorController = null;
+        
+        // Inicializar el módulo de proveedores cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            proveedorController = new ProveedorController();
+            
+            // Hacer el controlador global para que la vista pueda acceder a él
+            window.proveedorController = proveedorController;
+            
+            // Agregar proveedores de ejemplo si no existen
+            agregarProveedoresEjemplo();
+        });
+        
+        // Función para agregar proveedores de ejemplo
+        function agregarProveedoresEjemplo() {
+            try {
+                const proveedorService = new ProveedorService();
+                const proveedoresExistentes = proveedorService.obtenerTodos();
+                
+                console.log('Proveedores existentes:', proveedoresExistentes.length);
+                
+                // Solo agregar ejemplos si no hay proveedores
+                if (proveedoresExistentes.length === 0) {
+                    console.log('Agregando proveedores de ejemplo...');
+                    
+                    // Proveedor de ejemplo 1
+                    const proveedor1 = new Proveedor(
+                        'Tecnología Avanzada S.A.',
+                        'María González',
+                        '+52 55 1234 5678',
+                        'maria.gonzalez@tecavanzada.com',
+                        'Av. Reforma 123, Col. Centro',
+                        'Ciudad de México',
+                        'México',
+                        'Equipos de cómputo y software'
+                    );
+                    
+                    // Proveedor de ejemplo 2
+                    const proveedor2 = new Proveedor(
+                        'Suministros Industriales del Norte',
+                        'Carlos Rodríguez',
+                        '+52 81 9876 5432',
+                        'carlos.rodriguez@suministrosnorte.com',
+                        'Blvd. Universidad 456, Col. Industrial',
+                        'Monterrey',
+                        'México',
+                        'Materiales industriales y herramientas'
+                    );
+                    
+                    // Agregar los proveedores
+                    const resultado1 = proveedorService.agregar(proveedor1);
+                    const resultado2 = proveedorService.agregar(proveedor2);
+                    
+                    console.log('Resultado agregar proveedor 1:', resultado1);
+                    console.log('Resultado agregar proveedor 2:', resultado2);
+                    
+                    console.log('Proveedores de ejemplo agregados correctamente');
+                    
+                    // Recargar la vista
+                    proveedorController.cargarProveedores();
+                } else {
+                    console.log('Ya existen proveedores, no se agregan ejemplos');
+                }
+                
+            } catch (error) {
+                console.error('Error al agregar proveedores de ejemplo:', error);
+            }
+        }
+    </script>
+</body>
+</html>

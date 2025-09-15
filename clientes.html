@@ -54,24 +54,10 @@
         </div>
     </nav>
 
-    <!-- Contenedor principal -->
-    <main class="main-container">
+      <!-- Contenedor principal -->
+      <main class="main-container">
         <div id="module-content" class="module-content">
-            <div class="modulo-en-desarrollo">
-                <h2>Módulo de Clientes</h2>
-                <div class="mensaje-desarrollo">
-                    <p>🚧 Este módulo está en desarrollo</p>
-                    <p>Próximamente podrás gestionar tu base de clientes aquí</p>
-                    <p>Funcionalidades que se implementarán:</p>
-                    <ul style="text-align: left; max-width: 400px; margin: 1rem auto;">
-                        <li>✅ Agregar nuevos clientes</li>
-                        <li>✅ Editar información de clientes</li>
-                        <li>✅ Eliminar clientes</li>
-                        <li>✅ Ver historial de compras</li>
-                        <li>✅ Gestión de contactos</li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Aquí se cargará la tabla de clientes -->
         </div>
     </main>
 
@@ -79,5 +65,36 @@
     <footer class="footer">
         <p>&copy; 2024 CRM - Sistema de Gestión. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/models/Cliente.js"></script>
+    <script src="js/views/ClienteView.js"></script>
+    <script src="js/controllers/ClienteController.js"></script>
+    <script>
+        let clienteController = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar controlador
+            clienteController = new ClienteController();
+            window.clienteController = clienteController;
+
+            // Cargar datos de ejemplo si no hay clientes
+            clienteController.agregarCliente(new Cliente(
+                'Juan Pérez',
+                'juan.perez@email.com',
+                '+52 55 1111 2222',
+                'CDMX',
+                'México'
+            ));
+
+            clienteController.agregarCliente(new Cliente(
+                'Laura Gómez',
+                'laura.gomez@email.com',
+                '+52 81 3333 4444',
+                'Monterrey',
+                'México'
+            ));
+        });
+    </script>
 </body>
 </html>

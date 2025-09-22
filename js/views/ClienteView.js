@@ -6,8 +6,11 @@ class ClienteView {
 
     render(clientes) {
         this.moduleContent.innerHTML = `
+        <div class="proveedores-container">
+        <!-- Encabezado con título y botón de agregar -->
+        <div class="proveedores-header">
             <h2>Gestión de Clientes</h2>
-            <button id="btn-agregar-cliente">➕ Agregar Cliente</button>
+            <button id="btn-agregar-cliente" class="btn-agregar">➕ Agregar Cliente</button>
             <table class="tabla-clientes">
                 <thead>
                     <tr>
@@ -28,8 +31,8 @@ class ClienteView {
                             <td>${cliente.ciudad}</td>
                             <td>${cliente.pais}</td>
                             <td>
-                                <button onclick="clienteController.editarCliente(${cliente.id})">✏️ Editar</button>
-                                <button onclick="clienteController.eliminarCliente(${cliente.id})">🗑️ Eliminar</button>
+                                <button class="btn-accion btn-editar" onclick="clienteController.editarCliente(${cliente.id})">✏️ Editar</button>
+                                <button class="btn-accion btn-eliminar" onclick="clienteController.eliminarCliente(${cliente.id})">🗑️ Eliminar</button>
                             </td>
                         </tr>
                     `).join("")}

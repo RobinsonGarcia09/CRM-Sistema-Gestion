@@ -5,10 +5,15 @@ class VendedorView {
     }
 
     render(vendedores) {
+       
         this.moduleContent.innerHTML = `
-            <h2>Gestión de Vendedores</h2>
-            <button id="btn-agregar-vendedor">➕ Agregar Vendedor</button>
+         <div class="proveedores-header">
+            <h2>Gestión de Vendedores </h2> 
+            <button id="btn-agregar-vendedor"class="btn-agregar" onclick="window.vendedoresController.mostrarFormulario()"  
+            >➕ Agregar Vendedor</button> 
+            </div>
             <table class="tabla-vendedores">
+                
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -26,7 +31,9 @@ class VendedorView {
                             <td>${v.telefono}</td>
                             <td>${v.region}</td>
                             <td>
+                             <button class="btn-accion btn-editar"
                                 <button onclick="vendedorController.editarVendedor(${v.id})">✏️ Editar</button>
+                                 <button class="btn-accion btn-eliminar"
                                 <button onclick="vendedorController.eliminarVendedor(${v.id})">🗑️ Eliminar</button>
                             </td>
                         </tr>

@@ -7,7 +7,7 @@ class ProductoView {
     render(productos) {
         this.moduleContent.innerHTML = `
             <h2>Gestión de Productos</h2>
-            <button id="btn-agregar-producto">➕ Agregar Producto</button>
+            <button id="btn-agregar-producto"  class = "btn-agregar"> ➕ Agregar Producto</button>
             <table class="tabla-productos">
                 <thead>
                     <tr>

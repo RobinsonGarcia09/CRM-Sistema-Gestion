@@ -6,6 +6,9 @@ class ProductoView {
 
     render(productos) {
         this.moduleContent.innerHTML = `
+        <div class="proveedores-container">
+        <!-- Encabezado con título y botón de agregar -->
+        <div class="proveedores-header">
             <h2>Gestión de Productos</h2>
             <button id="btn-agregar-producto"  class = "btn-agregar"> ➕ Agregar Producto</button>
             <table class="tabla-productos">
@@ -26,8 +29,8 @@ class ProductoView {
                             <td>$${producto.precio.toFixed(2)}</td>
                             <td>${producto.stock}</td>
                             <td>
-                                <button onclick="productoController.editarProducto(${producto.id})">✏️ Editar</button>
-                                <button onclick="productoController.eliminarProducto(${producto.id})">🗑️ Eliminar</button>
+                                <button class="btn-accion btn-editar" onclick="productoController.editarProducto(${producto.id})">✏️ Editar</button>
+                                <button class="btn-accion btn-eliminar" onclick="productoController.eliminarProducto(${producto.id})">🗑️ Eliminar</button>
                             </td>
                         </tr>
                     `).join("")}

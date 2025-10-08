@@ -1,0 +1,12 @@
+// backend/models/Clientes.js
+const mongoose = require('mongoose');
+
+const clienteSchema = new mongoose.Schema({
+  Nombre: { type: String, required: true },
+  Email:{ type: String, required: true },
+  Telefono: String,
+  Ciudad: String,
+  Pais: String
+});
+
+module.exports = mongoose.model('Clientes', clienteSchema);
